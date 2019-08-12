@@ -10,7 +10,7 @@
                 <i class="fas fa-search-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="http://localhost:8080/wp-content/themes/myTheme/img/portfolio/cabin.png" alt="">
+            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/cabin.png" alt="">
           </a>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -20,7 +20,7 @@
                 <i class="fas fa-search-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="http://localhost:8080/wp-content/themes/myTheme/img/portfolio/cake.png" alt="">
+            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/cake.png" alt="">
           </a>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -30,7 +30,7 @@
                 <i class="fas fa-search-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="http://localhost:8080/wp-content/themes/myTheme/img/portfolio/circus.png" alt="">
+            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/circus.png" alt="">
           </a>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -40,7 +40,7 @@
                 <i class="fas fa-search-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="http://localhost:8080/wp-content/themes/myTheme/img/portfolio/game.png" alt="">
+            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/game.png" alt="">
           </a>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -50,7 +50,7 @@
                 <i class="fas fa-search-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="http://localhost:8080/wp-content/themes/myTheme/img/portfolio/safe.png" alt="">
+            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/safe.png" alt="">
           </a>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -60,7 +60,7 @@
                 <i class="fas fa-search-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="http://localhost:8080/wp-content/themes/myTheme/img/portfolio/submarine.png" alt="">
+            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/submarine.png" alt="">
           </a>
         </div>
       </div>

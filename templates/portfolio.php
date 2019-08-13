@@ -1,68 +1,33 @@
+<?php
+$args = [
+  'post_type' => 'post',
+  'posts_per_page' => 6,
+  'category_name' => 'portfolio'
+];
+$query = new WP_Query($args);
+?>
+<!-- Portfolio Grid Section -->
 <section class="portfolio" id="portfolio">
-    <div class="container">
-      <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-      <hr class="star-dark mb-5">
-      <div class="row">
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
+  <div class="container">
+    <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+    <hr class="star-dark mb-5">
+    <div class="row">
+      <?php while ($query->have_posts()) : $query->the_post(); ?>
+      <div class="col-md-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="<?php the_permalink(); ?>">
+          <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+              <i class="fas fa-search-plus fa-3x"></i>
             </div>
-            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/cabin.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/cake.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/circus.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/game.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-5">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/safe.png" alt="">
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
-            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/portfolio/submarine.png" alt="">
-          </a>
-        </div>
+          </div>
+          <img class="img-fluid" src="<?php the_post_thumbnail_url(); ?>" alt="">
+        </a>
       </div>
+      <?php
+      endwhile;
+      // Cette fonction réactualise les $post data en fonction du context du wp hierarchie
+      wp_reset_postdata();
+      ?>
     </div>
-  </section>
+  </div>
+</section>

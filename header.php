@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
           <?php
           $args = array(
-            // 'menu' => 'main-menu',
+            'menu' => 'main-menu',
             'menu_class' => 'navbar-nav ml-auto',
             'theme_location' => 'main-menu',
             'container'     => '',

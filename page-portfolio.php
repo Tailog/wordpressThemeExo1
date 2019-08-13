@@ -8,18 +8,19 @@ get_header();
     <?php the_title(); ?>
   </h1>
   <?php endwhile; ?>
+
 </div>
 <div class="container single-post-container">
   <div class="post-content">
+    <!-- La fonction wp_reset_query() permet de réinitialiser les valeurs $post en fonction du context -->
+    <?php wp_reset_query(); ?>
+
     <?php while (have_posts()) : the_post(); ?>
     <?php the_content(); ?>
     <?php endwhile; ?>
   </div>
-  <?php wp_reset_query(); ?>
-  <?php while (have_posts()) : the_post(); ?>
-  <?php the_content(); ?>
-  <?php endwhile; ?>
-
-  <?php
-  get_footer();
-  ?>
+  <?php get_template_part('templates/partials/grid-portfolio'); ?>
+</div>
+<?php
+get_footer();
+?>

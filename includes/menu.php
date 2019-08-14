@@ -10,17 +10,21 @@ class MgMenu{
   public static function register_main_menu()
   {
     register_nav_menu('main-menu', 'Menu principal dans le header.');
+    // Ajout d'un menu pour les réseaux sociaux dans le footer. On rendra alors le menu actuelle dynamique et dans
+    // le backoffice on mettra l'html icon directement à la place du texte du lien du menu.
+    register_nav_menu('social-network-footer', 'Menu réseaux sociaux footer');
   }
   /**
    * Fonction qui ajoute des attributes au balise li des nav_menu
    *
    */
-  public static function add_additional_class_on_li($classes, $item, $args)
+  public static function add_additional_class_on_li($atts, $item, $args)
   {
     if ($args->add_li_class) {
-      $classes[] = $args->add_li_class;
+      $class = $args->add_li_class;
     }
-    return $classes;
+    $atts['class'] = $class;
+    return $atts;
   }
   /**
    * Fonction qui ajoute des attributes au balise a des nav_menu
@@ -32,7 +36,13 @@ class MgMenu{
    */
   public static function add_menu_a_class($atts, $item, $args)
   {
-    $class = "nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"; // or something based on $item
+    // On ajoute un condition pour pouvoir choisir les class que l'on ajoute en fonction du menu
+    if ($args->theme_location == 'main-menu') {
+      $class = 'nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger'; // or something based on $item
+    }
+    if ($args->theme_location == 'social-network-footer') {
+      $class = 'btn btn-outline-light btn-social text-center rounded-circle'; // On place ici les mêmes class pour la balise a qu'il y avait dans le thème
+    }
     $atts['class'] = $class;
     return $atts;
   }
